@@ -1,0 +1,97 @@
+<template>
+    <nav>
+        <ul>    
+            <li>    
+                <i class="material-icons">home</i>
+                <span>
+                    Vinícios Malara
+                    <n-link to="/">  Sair  </n-link>
+                </span>
+            </li>
+            <li class="navgation-area">
+                <n-link to="/">
+                    <i class="material-icons">home</i>
+                    <span>Início</span>
+                </n-link>
+                <n-link to="/clientes">
+                    <i class="material-icons">person</i>
+                    <span>Clientes</span>
+                </n-link>
+                <n-link to="/">
+                    <i class="material-icons">drive_eta</i>
+                    <span>Veículos</span>
+                </n-link>
+                <n-link to="/">
+                    <i class="material-icons">device_hub</i>
+                    <span>Triangulação</span>
+                </n-link>
+                <n-link to="/">
+                    <i class="material-icons">account_balance_wallet</i>
+                    <span>Financeiro</span>
+                </n-link>
+            </li>
+        </ul>
+    </nav>
+</template>
+<style scoped lang="scss">
+    nav {
+        width: 80px;
+        box-shadow: 1px 0 0 0 #e0e0e0;
+        position: relative;
+
+        &:hover {
+          ul {
+            width: 240px;
+            a {
+                span {
+                    opacity: 1;
+                }
+            }
+          }
+        }
+
+        ul {
+            background: #fff;
+            overflow: hidden;
+            width: 100%;
+            top: 0;
+            left: 0;
+            z-index: 9999;
+            position: absolute;
+            height: 100%;
+            padding: 15px;
+            box-shadow: 1px 0 0 0 #e0e0e0;
+            transition: .300s ease-in-out;
+        }
+
+        a {
+            padding: 15px 12px;
+            white-space: nowrap;
+            width: 100%;
+            float: left;
+            border-radius: 4px;
+            line-height: 24px;
+            align-content: center;
+            font-weight: bold;
+            display: flex;
+
+            &:hover {
+                background: #f3f7ff;
+            }
+
+            i {
+                display: inline-block;
+            }
+
+            span {
+                padding-left: 20px;
+                opacity: 0;
+            }
+        }
+    }
+</style>
+<script>
+export default {
+    
+}
+</script>
