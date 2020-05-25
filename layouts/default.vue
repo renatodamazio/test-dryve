@@ -257,7 +257,6 @@ export default {
     }
 
     .md-field {
-        // width: 262px;
         height: 56px;
         opacity: 0.7;
         border-radius: 4px;

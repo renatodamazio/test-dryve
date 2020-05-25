@@ -126,8 +126,8 @@
                     </md-card-content>
                 </md-card-area>
                  <md-card-actions md-alignment="left">
-                    <md-button>Action</md-button>
-                    <md-button>Action</md-button>
+                    <md-button type="submit" class="md-raised md-primary">Salvar</md-button>
+                    <md-button @click="clearForm()">Cancelar</md-button>
                 </md-card-actions>
             </md-card>
         </form>

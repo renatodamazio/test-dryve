@@ -2,11 +2,7 @@
     <nav>
         <ul>    
             <li>    
-                <i class="material-icons">home</i>
-                <span>
-                    Vinícios Malara
-                    <n-link to="/">  Sair  </n-link>
-                </span>
+                <headerInfo></headerInfo>
             </li>
             <li class="navgation-area">
                 <n-link to="/">
@@ -92,6 +88,8 @@
 </style>
 <script>
 export default {
-    
+    components: {
+        headerInfo: () =>  import('./header-info.vue')
+    }
 }
 </script>
