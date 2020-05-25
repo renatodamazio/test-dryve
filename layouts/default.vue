@@ -67,6 +67,10 @@ export default {
     font-size: 14px;
     font-weight: 500;
     transition: .500s ease-in-out;
+
+    &:hover {
+      text-decoration: none;
+    }
   }
 
   html, body, #__nuxt, #__layout {
@@ -108,6 +112,7 @@ export default {
 
   .main-header {
     display: flex;
+    margin-bottom: 30px;
   }
 
   .content {
@@ -122,6 +127,10 @@ export default {
 
   .center-align {
     text-align: center;
+  }
+
+  .mb-30 {
+    margin-bottom: 30px;
   }
 
   .left-align {
@@ -256,21 +265,4 @@ export default {
         padding-left: 0;
     }
 
-    .md-field {
-        height: 56px;
-        opacity: 0.7;
-        border-radius: 4px;
-        border: 1px solid rgba(0, 0, 0, 0.38);
-        label {
-          left: 16px;
-          top: 17px;
-          font-size: 16px;
-
-        }
-        .md-input {
-          padding-left: 16px;
-          padding-right: 16px;
-          font-size: 16px;
-        }
-    }
 </style>

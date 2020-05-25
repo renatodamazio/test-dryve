@@ -167,6 +167,23 @@
         display: none !important;
     }
     
+    .md-field {
+      height: 56px;
+      opacity: 0.7;
+      border-radius: 4px;
+      border: 1px solid rgba(0, 0, 0, 0.38);
+      label {
+        left: 16px;
+        top: 17px;
+        font-size: 16px;
+
+      }
+      .md-input {
+        padding-left: 16px;
+        padding-right: 16px;
+        font-size: 16px;
+      }
+    }
 </style>
 <script>
 import { validationMixin } from 'vuelidate'

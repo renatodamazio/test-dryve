@@ -20,22 +20,6 @@
                 <label>{{ footer_text }}</label>
             </md-card-actions>
         </md-card>
-        <!-- <div class="card">
-            <span class="card-header">{{ title }}</span>
-            <div class="card-body">
-                <div class="card-aside--data">
-                    <h1>{{ value }}</h1>
-                </div>
-                <div class="card-aside--icon">
-                    <i class="material-icons">{{ icon }}</i>
-                </div>
-            </div>
-            <div class="card-footer">
-                <i class="material-icons">{{ footer_icon }}</i>
-                <span>{{ footer_estimative }}%</span>
-                <label>{{ footer_text }}</label>
-            </div>
-        </div> -->
     </div>
 </template>
 <style scoped lang="scss">

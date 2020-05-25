@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="main-header">
-      <div v-for="(card, i) in cards" :key="i" style="flex: 1; padding: 0 10px">
+    <div class="main-header md-layout md-gutter">
+      <div v-for="(card, i) in cards" :key="i" class="md-layout-item">
         <CardQuickInfo 
           prefecth
           :title="card.title"
@@ -14,13 +14,15 @@
         />
       </div>
     </div>
+    
     <div class="md-layout md-gutter">
-      <div class="md-layout-item md-size-70">
+      <div class="md-layout-item md-size-66">
         <Evaluations />
       </div>
-      <div class="md-layout-item md-size-30">
-        <CardInfo />
-
+      <div class="md-layout-item md-size-44">
+        <div class="mb-30">
+          <CardInfo />
+        </div>
         <ChartDonut />
       </div>
     </div>

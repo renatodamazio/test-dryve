@@ -10,7 +10,7 @@
 <style lang="scss" scoped>
     .user-header {
         white-space: nowrap;
-        width: 300px;
+        width: 225px;
         display: flex;
         padding-top: 31px;
         padding-bottom: 27px;
@@ -18,13 +18,17 @@
 
         figure {
             width: 50px;
+            min-width: 50px;
             height: 50px;
+            max-height: 50px;
+            min-height: 50px;
             border-radius: 100%;
             display: inline-block;
             border: 2px solid #fff;
             box-shadow: 0px 0px 1px 2px #0065ff;
             background: #eee;
             overflow: hidden;
+                            object-fit: cover;
 
             img {
                 object-fit: cover;

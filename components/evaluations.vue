@@ -23,7 +23,7 @@
         </md-table-row>
 
         <md-table-row v-for="(item, i) in items" :key="i">
-            <md-table-cell style="padding-left: 0;">
+            <md-table-cell style="padding-left: 20px;">
                 <div class="md-layout" style="padding-right: 0">
                     <figure class="md-layout-item table-figure">
                         <img :src="item.image" alt="" width="100%">
