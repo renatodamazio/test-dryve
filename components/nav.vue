@@ -30,58 +30,66 @@
     </nav>
 </template>
 <style scoped lang="scss">
-    nav {
-        width: 80px;
-        box-shadow: 1px 0 0 0 #e0e0e0;
-        position: relative;
-
-        &:hover {
-          ul {
-            width: 240px;
-            a {
-                span {
-                    opacity: 1;
+    .md-theme-default {
+        nav {
+            width: 80px;
+            box-shadow: 1px 0 0 0 #e0e0e0;
+            position: relative;
+            z-index: 99999;
+            &:hover {
+            ul {
+                width: 240px;
+                a {
+                    span {
+                        opacity: 1;
+                    }
                 }
             }
-          }
-        }
-
-        ul {
-            background: #fff;
-            overflow: hidden;
-            width: 100%;
-            top: 0;
-            left: 0;
-            z-index: 9999;
-            position: absolute;
-            height: 100%;
-            padding: 15px;
-            box-shadow: 1px 0 0 0 #e0e0e0;
-            transition: .300s ease-in-out;
-        }
-
-        a {
-            padding: 15px 12px;
-            white-space: nowrap;
-            width: 100%;
-            float: left;
-            border-radius: 4px;
-            line-height: 24px;
-            align-content: center;
-            font-weight: bold;
-            display: flex;
-
-            &:hover {
-                background: #f3f7ff;
             }
 
-            i {
-                display: inline-block;
+            ul {
+                background: #fff;
+                overflow: hidden;
+                width: 100%;
+                top: 0;
+                left: 0;
+                z-index: 9999;
+                position: absolute;
+                height: 100%;
+                padding: 15px;
+                box-shadow: 1px 0 0 0 #e0e0e0;
+                transition: .300s ease-in-out;
             }
 
-            span {
-                padding-left: 20px;
-                opacity: 0;
+            a {
+                padding: 10px 12px;
+                white-space: nowrap;
+                width: 100%;
+                float: left;
+                font-size: 14px;
+                border-radius: 4px;
+                line-height: 24px;
+                align-content: center;
+                font-weight: bold;
+                display: flex;
+                color: rgba(0, 0, 0, 0.87);
+
+                &:hover {
+                    background: #f3f7ff;
+                    i {
+                        opacity: 1;
+                    }
+                }
+
+                i {
+                    display: inline-block;
+                    opacity: 0.5;
+                }
+
+                span {
+                    padding-left: 20px;
+                    opacity: 0;
+                }
             }
         }
     }

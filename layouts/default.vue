@@ -2,7 +2,7 @@
   <div class="wrapper">
     <NavBar></NavBar>
     <main>
-      <header></header>
+      <Header/>
       <section><nuxt /></section>
       <footer></footer>  
     </main>
@@ -11,7 +11,8 @@
 <script>
 export default {
   components: {
-    NavBar: () => import('../components/nav.vue')
+    NavBar: () => import('../components/nav.vue'),
+    Header: () => import('../components/header.vue')
   }
 }
 </script>
@@ -29,6 +30,19 @@ export default {
     text-decoration: none;
     font-family: 'Inter', sans-serif;
   }
+
+  @import "~vue-material/dist/theme/engine"; // Import the theme engine
+
+  @include md-register-theme("purple", (
+    primary: #6200ee,
+    theme: 'dark'
+  ));
+
+  @include md-register-theme("default", (
+    accent: #0065ff
+  ));
+
+  @import "~vue-material/dist/theme/all"; // Apply the theme
 
   .material-icons {
     vertical-align: middle;
@@ -220,6 +234,10 @@ export default {
         }
     }
     
+    .pt-0 {
+      padding-top: 0;
+    }
+
     .pl-10 {
       padding-left: 10px;
     }
@@ -319,7 +337,7 @@ export default {
 
     button.md-button.md-theme-default.md-raised:not([disabled]).md-purple {
       background-color: #6200ee;
-      color: #fff;
+      color: #fff !important;
       font-size: 14px;
       border-radius: 4px;
       .md-button-content {

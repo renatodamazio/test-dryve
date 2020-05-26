@@ -1,7 +1,6 @@
 <template>
     <md-list mx-size-100>
         <md-subheader>Top intenções de compra</md-subheader>
-
         <md-list-item v-for="i in 4" :key="i">
             <div class="card-content">
                 <md-avatar>

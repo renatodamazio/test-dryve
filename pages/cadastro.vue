@@ -11,8 +11,8 @@
                                 <md-field :class="getValidationClass('firstName')">
                                     <label for="first-name">Nome</label>
                                     <md-input name="first-name" id="first-name" autocomplete="given-name" v-model="form.firstName" :disabled="sending" />
-                                    <span class="md-error" v-if="!$v.form.firstName.required">The first name is required</span>
-                                    <span class="md-error" v-else-if="!$v.form.firstName.minlength">Invalid first name</span>
+                                    <span class="md-error" v-if="!$v.form.firstName.required">Digite seu primeiro nome</span>
+                                    <span class="md-error" v-else-if="!$v.form.firstName.minlength">Campo inválido</span>
                                 </md-field>
                             </div>
 
@@ -20,8 +20,8 @@
                                 <md-field :class="getValidationClass('lastName')">
                                     <label for="last-name">Sobrenome</label>
                                     <md-input name="last-name" id="last-name" autocomplete="given-lastName" v-model="form.lastName" :disabled="sending" />
-                                    <span class="md-error" v-if="!$v.form.lastName.required">The first name is required</span>
-                                    <span class="md-error" v-else-if="!$v.form.lastName.minlength">Invalid first name</span>
+                                    <span class="md-error" v-if="!$v.form.lastName.required">Sobrenome é obrigatório</span>
+                                    <span class="md-error" v-else-if="!$v.form.lastName.minlength">Campo inválido</span>
                                 </md-field>
                             </div>
                         </div>
@@ -31,8 +31,8 @@
                                 <md-field :class="getValidationClass('email')">
                                     <label for="email">E-mail</label>
                                     <md-input name="email" id="email" autocomplete="given-email" v-model="form.email" :disabled="sending" />
-                                    <span class="md-error" v-if="!$v.form.email.required">The first name is required</span>
-                                    <span class="md-error" v-else-if="!$v.form.email.minlength">Invalid first name</span>
+                                    <span class="md-error" v-if="!$v.form.email.required">E-mail é obrigatório</span>
+                                    <span class="md-error" v-else-if="!$v.form.email.minlength">Campo inválido</span>
                                 </md-field>
                             </div>
                         </div>
@@ -41,10 +41,13 @@
                             <div class="md-layout-item md-size-25">
                                 <md-field :class="getValidationClass('phone')">
                                     <label for="phone">Telefone</label>
-                                    <md-input name="phone" id="phone" autocomplete="given-phone" v-model="form.phone" :disabled="sending" />
-                                    <span class="md-error" v-if="!$v.form.phone.required">The first name is required</span>
-                                    <span class="md-error" v-else-if="!$v.form.phone.minlength">Invalid first name</span>
+                                    <md-input name="phone" id="phone" autocomplete="given-phone" v-model="form.phone" :disabled="sending" v-mask="['(##) ####-####', '(##) #####-####']"/>
+                                    <span class="md-error" v-if="!$v.form.phone.required">Telefone é obrigatório</span>
+                                    <span class="md-error" v-else-if="!$v.form.phone.minlength">Campo inválido</span>
                                 </md-field>
+                            </div>
+                            <div class="md-layout-item md-size-25">
+                              <md-button class="md-primary is-small">+ adicionar outro</md-button>
                             </div>
                         </div>
 
@@ -52,9 +55,9 @@
                             <div class="md-layout-item md-size-25">
                                 <md-field :class="getValidationClass('zipcode')">
                                     <label for="zipcode">CEP</label>
-                                    <md-input name="zipcode" id="zipcode" autocomplete="given-zipcode" v-model="form.zipcode" :disabled="sending" />
-                                    <span class="md-error" v-if="!$v.form.zipcode.required">The first name is required</span>
-                                    <span class="md-error" v-else-if="!$v.form.zipcode.minlength">Invalid first name</span>
+                                    <md-input name="zipcode" id="zipcode" autocomplete="given-zipcode" v-model="form.zipcode" :disabled="sending"  @blur="getCep" v-mask="'##.###-###'"/>
+                                    <span class="md-error" v-if="!$v.form.zipcode.required">Cep é Obrigatório</span>
+                                    <span class="md-error" v-else-if="!$v.form.zipcode.minlength">Campo inválido</span>
                                 </md-field>
                             </div>
                         </div>
@@ -64,8 +67,8 @@
                                 <md-field :class="getValidationClass('address')">
                                     <label for="address">Endereço</label>
                                     <md-input name="address" id="address" autocomplete="given-address" v-model="form.address" :disabled="sending" />
-                                    <span class="md-error" v-if="!$v.form.address.required">The first name is required</span>
-                                    <span class="md-error" v-else-if="!$v.form.address.minlength">Invalid first name</span>
+                                    <span class="md-error" v-if="!$v.form.address.required">Endereço é Obrigatório</span>
+                                    <span class="md-error" v-else-if="!$v.form.address.minlength">Campo inválido</span>
                                 </md-field>
                             </div>
                         </div>
@@ -75,8 +78,8 @@
                                 <md-field :class="getValidationClass('number')">
                                     <label for="number">Número</label>
                                     <md-input name="number" id="number" autocomplete="given-name" v-model="form.number" :disabled="sending" />
-                                    <span class="md-error" v-if="!$v.form.number.required">The first name is required</span>
-                                    <span class="md-error" v-else-if="!$v.form.number.minlength">Invalid first name</span>
+                                    <span class="md-error" v-if="!$v.form.number.required">Número</span>
+                                    <span class="md-error" v-else-if="!$v.form.number.minlength">Campo inválido</span>
                                 </md-field>
                             </div>
 
@@ -84,8 +87,8 @@
                                 <md-field :class="getValidationClass('complement')">
                                     <label for="complement">Complemento</label>
                                     <md-input name="complement" id="complement" autocomplete="given-name" v-model="form.complement" :disabled="sending" />
-                                    <span class="md-error" v-if="!$v.form.complement.required">The first name is required</span>
-                                    <span class="md-error" v-else-if="!$v.form.complement.minlength">Invalid first name</span>
+                                    <span class="md-error" v-if="!$v.form.complement.required">Complemento</span>
+                                    <span class="md-error" v-else-if="!$v.form.complement.minlength">Campo inválido</span>
                                 </md-field>
                             </div>
                         </div>
@@ -95,8 +98,8 @@
                                 <md-field :class="getValidationClass('neighbor')">
                                     <label for="neighbor">Bairro</label>
                                     <md-input name="neighbor" id="neighbor" autocomplete="given-name" v-model="form.neighbor" :disabled="sending" />
-                                    <span class="md-error" v-if="!$v.form.neighbor.required">The first name is required</span>
-                                    <span class="md-error" v-else-if="!$v.form.neighbor.minlength">Invalid first name</span>
+                                    <span class="md-error" v-if="!$v.form.neighbor.required">Bairro</span>
+                                    <span class="md-error" v-else-if="!$v.form.neighbor.minlength">Campo inválido</span>
                                 </md-field>
                             </div>
                         </div>
@@ -106,18 +109,15 @@
                                 <md-field :class="getValidationClass('city')">
                                     <label for="city">Cidade</label>
                                     <md-input name="city" id="city" autocomplete="given-name" v-model="form.city" :disabled="sending" />
-                                    <span class="md-error" v-if="!$v.form.city.required">The first name is required</span>
-                                    <span class="md-error" v-else-if="!$v.form.city.minlength">Invalid first name</span>
+                                    <span class="md-error" v-if="!$v.form.city.required">Cidade</span>
+                                    <span class="md-error" v-else-if="!$v.form.city.minlength">Campo inválido</span>
                                 </md-field>
                             </div>
 
                             <div class="md-size-25 md-layout-item">
-                                <md-field :class="getValidationClass('lastName')">
-                                    <md-select v-model="country" name="country" id="country" placeholder="Country">
-                                        <md-option value="australia">Australia</md-option>
-                                        <md-option value="brazil">Brazil</md-option>
-                                        <md-option value="japan">Japan</md-option>
-                                        <md-option value="united-states">United States</md-option>
+                                <md-field :class="getValidationClass('state')" class="pt-0">
+                                    <md-select v-model="state" name="state" id="state" placeholder="Estado">
+                                        <md-option :value="state.sigla" v-for="state in states">{{ state.nome }}</md-option>
                                     </md-select>
                                 </md-field>
                             </div>
@@ -126,23 +126,20 @@
                     </md-card-content>
                 </md-card-area>
                  <md-card-actions md-alignment="left">
-                    <md-button type="submit" class="md-raised md-primary">Salvar</md-button>
-                    <md-button @click="clearForm()">Cancelar</md-button>
+                    <md-button type="submit" class="md-raised md-purple">Salvar</md-button>
+                    &nbsp;&nbsp;
+                    <md-button @click="clearForm()" class="md-purple">Cancelar</md-button>
                 </md-card-actions>
             </md-card>
         </form>
       </md-step>
 
-      <md-step id="second" md-label="Second Step">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
+      <md-step id="second" md-label="Dados do veículo" md-disabled>
+        <h1>Em breve</h1>
       </md-step>
 
-      <md-step id="third" md-label="Third Step">
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias doloribus eveniet quaerat modi cumque quos sed, temporibus nemo eius amet aliquid, illo minus blanditiis tempore, dolores voluptas dolore placeat nulla.</p>
+      <md-step id="third" md-label="Intençao de compra" md-disabled>
+        <h1>Em breve</h1>
       </md-step>
     </md-steppers>
   </div>
@@ -162,9 +159,35 @@
             margin: 0 auto;
             text-transform: uppercase;
         }
+
+        .md-stepper-text {
+          .md-stepper-label {
+            font-size: 14px;
+          }
+        }
+
+        &.md-active {
+          .md-stepper-text {
+            color: #6200ee;
+          }
+          border-bottom: 1px solid #6200ee;
+        }
     }
+
+    .md-steppers-navigation {
+      box-shadow: none;
+      border-bottom: solid 1px rgba(0, 0, 0, 0.12);
+    }
+
     .md-stepper-header .md-button-content:after {
         display: none !important;
+    }
+
+    .md-stepper-content {
+      .md-card {
+        border: none;
+        padding: 0;
+      }
     }
     
     .md-field {
@@ -184,9 +207,25 @@
         font-size: 16px;
       }
     }
+
+    .md-menu.md-select {
+      input {
+        height: 54px;
+      }
+    }
+
+    .is-small {
+      .md-button-content {
+        font-size: 14px;
+        text-transform: none;
+      }
+    }
 </style>
 <script>
-import { validationMixin } from 'vuelidate'
+  import axios from 'axios';
+  import { validationMixin } from 'vuelidate';
+  import {mask} from 'vue-the-mask'
+
   import {
     required,
     email,
@@ -197,8 +236,201 @@ import { validationMixin } from 'vuelidate'
   export default {
     name: 'FormValidation',
     mixins: [validationMixin],
+    directives: { mask },
+
     data: () => ({
-      country: null,
+      state: 'SP',
+      states: [
+          {
+            "id_uf": 1,
+            "sigla": "AC",
+            "nome": "Acre",
+            "codigo": 12,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 2,
+            "sigla": "AL",
+            "nome": "Alagoas",
+            "codigo": 27,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 3,
+            "sigla": "AM",
+            "nome": "Amazonas",
+            "codigo": 13,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 4,
+            "sigla": "AP",
+            "nome": "Amapá",
+            "codigo": 16,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 5,
+            "sigla": "BA",
+            "nome": "Bahia",
+            "codigo": 29,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 6,
+            "sigla": "CE",
+            "nome": "Ceará",
+            "codigo": 23,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 7,
+            "sigla": "DF",
+            "nome": "Distrito Federal",
+            "codigo": 53,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 8,
+            "sigla": "ES",
+            "nome": "Espírito Santo",
+            "codigo": 32,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 9,
+            "sigla": "GO",
+            "nome": "Goiás",
+            "codigo": 52,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 10,
+            "sigla": "MA",
+            "nome": "Maranhão",
+            "codigo": 21,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 11,
+            "sigla": "MG",
+            "nome": "Minas Gerais",
+            "codigo": 31,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 12,
+            "sigla": "MS",
+            "nome": "Mato Grosso do Sul",
+            "codigo": 50,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 13,
+            "sigla": "MT",
+            "nome": "Mato Grosso",
+            "codigo": 51,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 14,
+            "sigla": "PA",
+            "nome": "Pará",
+            "codigo": 15,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 15,
+            "sigla": "PB",
+            "nome": "Paraíba",
+            "codigo": 25,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 16,
+            "sigla": "PE",
+            "nome": "Pernambuco",
+            "codigo": 26,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 17,
+            "sigla": "PI",
+            "nome": "Piauí",
+            "codigo": 22,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 18,
+            "sigla": "PR",
+            "nome": "Paraná",
+            "codigo": 41,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 19,
+            "sigla": "RJ",
+            "nome": "Rio de Janeiro",
+            "codigo": 33,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 20,
+            "sigla": "RN",
+            "nome": "Rio Grande do Norte",
+            "codigo": 24,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 21,
+            "sigla": "RO",
+            "nome": "Rondônia",
+            "codigo": 11,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 22,
+            "sigla": "RR",
+            "nome": "Roraima",
+            "codigo": 14,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 23,
+            "sigla": "RS",
+            "nome": "Rio Grande do Sul",
+            "codigo": 43,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 24,
+            "sigla": "SC",
+            "nome": "Santa Catarina",
+            "codigo": 42,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 25,
+            "sigla": "SE",
+            "nome": "Sergipe",
+            "codigo": 28,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 26,
+            "sigla": "SP",
+            "nome": "São Paulo",
+            "codigo": 35,
+            "id_pais": 1
+          },
+          {
+            "id_uf": 27,
+            "sigla": "TO",
+            "nome": "Tocantins",
+            "codigo": 17,
+            "id_pais": 1
+          }
+        ],
       form: {
         firstName: null,
         lastName: null,
@@ -207,6 +439,7 @@ import { validationMixin } from 'vuelidate'
         email: null,
         address: null,
         neighbor: null,
+        complement: null,
         city: null
       },
       userSaved: false,
@@ -256,6 +489,21 @@ import { validationMixin } from 'vuelidate'
       }
     },
     methods: {
+      getCep() {
+        var zipcode = this.form.zipcode.replace(/[^a-zA-Z0-9 ]/g, '');
+        
+        if (zipcode.length < 8) return false;
+
+        axios.get(`https://viacep.com.br/ws/${zipcode}/json/`)
+        .then((resp) => {
+          let res = (resp.data);
+          this.form.city = res.localidade;
+          this.form.neighbor = res.bairro;
+          this.form.complement = res.complemento;
+          this.state = res.uf;
+        })
+      },
+
       getValidationClass (fieldName) {
         const field = this.$v.form[fieldName]
 

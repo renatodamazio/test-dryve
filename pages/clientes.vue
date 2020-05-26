@@ -22,7 +22,7 @@
                     </md-field>
                 </div>
                 <div class="md-layout-item">
-                    <md-button class="md-raised md-purple m-0 right-align" style="float: right">
+                    <md-button @click="newUser()" class="md-raised md-purple m-0 right-align" style="float: right">
                         <md-icon>add</md-icon>Adicionar
                     </md-button>
                 </div>
@@ -145,6 +145,9 @@
       ]
     }),
     methods: {
+      newUser() {
+          return this.$router.push('/cadastro');
+      },
       onSelect (items) {
         this.selected = items
       },
