@@ -30,7 +30,7 @@
                             <div class="md-layout-item md-size-50">
                                 <md-field :class="getValidationClass('email')">
                                     <label for="email">E-mail</label>
-                                    <md-input name="email" id="email" autocomplete="given-email" v-model="form.email" :disabled="sending" />
+                                    <md-input type="email" name="email" id="email" autocomplete="given-email" v-model="form.email" :disabled="sending" />
                                     <span class="md-error" v-if="!$v.form.email.required">E-mail é obrigatório</span>
                                     <span class="md-error" v-else-if="!$v.form.email.minlength">Campo inválido</span>
                                 </md-field>
@@ -41,7 +41,7 @@
                             <div class="md-layout-item md-size-25">
                                 <md-field :class="getValidationClass('phone')">
                                     <label for="phone">Telefone</label>
-                                    <md-input name="phone" id="phone" autocomplete="given-phone" v-model="form.phone" :disabled="sending" v-mask="['(##) ####-####', '(##) #####-####']"/>
+                                    <md-input name="phone" type="tel" id="phone" autocomplete="given-phone" v-model="form.phone" :disabled="sending" v-mask="['(##) ####-####', '(##) #####-####']"/>
                                     <span class="md-error" v-if="!$v.form.phone.required">Telefone é obrigatório</span>
                                     <span class="md-error" v-else-if="!$v.form.phone.minlength">Campo inválido</span>
                                 </md-field>

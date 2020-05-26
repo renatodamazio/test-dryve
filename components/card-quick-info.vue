@@ -14,7 +14,7 @@
                 </div>
             </md-card-content>
 
-            <md-card-actions md-alignment="left">
+            <md-card-actions md-alignment="left" :class="footer_status != 'regular' ? 'down' : ''">
                 <i class="material-icons">{{ footer_icon }}</i>
                 <span>{{ footer_estimative }}%</span>
                 <label>{{ footer_text }}</label>
@@ -92,6 +92,12 @@
                 color: rgba(0, 0, 0, 0.87);
                 opacity: 0.5;
                 font-size: 11px;
+            }
+
+            &.down {
+                i, span {
+                    color: #fc4a40;
+                }
             }
         }
 </style>

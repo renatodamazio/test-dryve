@@ -53,10 +53,10 @@
           title: 'TICKET MÉDIO DO ESTOQUE',
           value: 'R$ 42.567',
           icon: 'attach_money',
-          footer_icon: 'arrow_drop_up',
-          footer_text: 'Hoje',
+          footer_icon: 'arrow_drop_down',
+          footer_text: 'ontem',
           footer_estimative: '40',
-          footer_status: 'regular'
+          footer_status: 'down'
         }]
       }
     },

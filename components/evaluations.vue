@@ -29,16 +29,18 @@
                         <img :src="item.image" alt="" width="100%">
                     </figure>
                     <div class="md-layout-item infos">
-                        <strong>JEEP COMPASS</strong>
-                        <p>GDL8019</p>
-                        <p>2018 - Diesel</p>
-                        <p class="">Automático - 70.972</p>
+                        <strong>{{ item.name }}</strong>
+                        <p>{{ item.version_name }}</p>
+                        <p>{{ item.model_year }} - {{ item.fuel_type }}</p>
+                        <p class="">{{ item.transmission_type}} - {{ item.mileage }}</p>
                     </div>
                 </div>
             </md-table-cell>
             <md-table-cell>
                 <p>ANÚNCIO</p>
-                <p><strong>R$ 115.560</strong></p>
+                <input type="hidden" v-model.lazy="item.ad_selling_price" v-money="money" />
+                <p><strong>{{ item.ad_selling_price }}</strong></p>
+                <!-- Não encontrei as informações abaixo -->
                 <p>MÍNIMO ACEITO</p>
                 <p>R$ 115.560</p>
             </md-table-cell>
@@ -57,13 +59,25 @@
 </template>
 <script>
 import axios from 'axios';
+import {VMoney} from 'v-money'
+
 export default {
     data() {
         return {
             items: [],
-            date: 'hoje'
+            date: 'hoje',
+            money: {
+                decimal: ',',
+                thousands: '.',
+                prefix: 'R$ ',
+                suffix: '',
+                precision: 2
+            }
         }
     },
+    
+    directives: { money: VMoney },
+
     mounted() {
         axios.get('http://www.mocky.io/v2/5eb553df31000060006994a8')
         .then((resp) => {
