@@ -48,7 +48,7 @@
             </md-table-cell>
         </md-table-row>
        <md-table-row>
-            <md-table-cell colspan="4">
+            <md-table-cell colspan="4" style="padding: 0">
                 <p class="right-align"><a href="javascript:void(0);">Ver tudo <i class="material-icons">arrow_right</i></a></p>
             </md-table-cell>
         </md-table-row>

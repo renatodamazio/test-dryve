@@ -78,6 +78,10 @@ export default {
     height: 100%;
     font-family: 'Inter', sans-serif;
   }
+
+  input {
+    color: rgba(0, 0, 0, 0.87);
+  }
   
   .wrapper {
     display: flex;
@@ -215,6 +219,10 @@ export default {
             }
         }
     }
+    
+    .pl-10 {
+      padding-left: 10px;
+    }
 
     .pl-20 {
       padding-left: 20px;
@@ -222,6 +230,10 @@ export default {
 
     .pr-20 {
       padding-right: 20px;
+    }
+
+    .pr-10 {
+      padding-right: 10px;
     }
 
     .md-layout.md-gutter>.md-layout-item {
@@ -265,4 +277,56 @@ export default {
         padding-left: 0;
     }
 
+    .regular-field {
+      min-height: auto;
+      &::after, &::before {
+        display: none;
+      }
+
+      input.md-input {
+        background: #fff;
+        border: 1px solid rgba(0, 0, 0, 0.38);
+        padding-left: 16px;
+        border-radius: 4px;
+        min-height: 36px;
+        padding-right: 50px;
+      }
+
+      .md-icon {
+        top: 2px;
+        position: absolute;
+        right: 16px;
+        color: rgba(0, 0, 0, 0.87);
+      }
+    }
+
+    .bt-regular {
+      button.md-button {
+        color: #6200ee;
+        background: #fff;
+        border-radius: 4px;
+        border: 1px solid rgba(0, 0, 0, 0.38);
+
+        i {
+          color: #0065ff !important;
+        }
+      }
+    }
+
+    .m-0 {
+      margin: 0;
+    }
+
+    button.md-button.md-theme-default.md-raised:not([disabled]).md-purple {
+      background-color: #6200ee;
+      color: #fff;
+      font-size: 14px;
+      border-radius: 4px;
+      .md-button-content {
+        font-size: 14px;
+        i {
+          color: #fff
+        }
+      }
+    }
 </style>

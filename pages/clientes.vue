@@ -1,5 +1,33 @@
 <template>
     <div>
+        <div class="main-header">
+            <div class="md-layout gutter" style="width: 100%">
+                <div class="md-layout-item md-size-10">
+                    <md-menu md-direction="bottom-start" class="bt-regular">
+                        <md-button md-menu-trigger>
+                        <md-icon>filter_list</md-icon> FILTRAR
+                        </md-button>
+
+                        <md-menu-content>
+                            <md-menu-item @click="data = 'click 1'">My Item 1</md-menu-item>
+                            <md-menu-item @click="data = 'click 1'">My Item 2</md-menu-item>
+                            <md-menu-item @click="data = 'click 1'">My Item 3</md-menu-item>
+                        </md-menu-content>
+                    </md-menu>
+                </div>
+                <div class="md-layout-item md-size-30 pl-10">
+                    <md-field class="regular-field">
+                        <md-input></md-input>
+                        <md-icon>search</md-icon>
+                    </md-field>
+                </div>
+                <div class="md-layout-item">
+                    <md-button class="md-raised md-purple m-0 right-align" style="float: right">
+                        <md-icon>add</md-icon>Adicionar
+                    </md-button>
+                </div>
+            </div>
+        </div>
         <md-table v-model="people" md-card @md-selected="onSelect">
             <md-table-row slot="md-table-row" slot-scope="{ item }" :md-disabled="item.name.includes('Stave')" md-selectable="multiple" md-auto-select>
                 <md-table-cell md-label="Nome" md-sort-by="name">{{ item.name }}</md-table-cell>
@@ -18,7 +46,7 @@
                         <span>Itens por página:</span>
                         <div class="">
                             <md-field style="max-width: 60px; margin-left: 10px">
-                                <md-select selected="1">
+                                <md-select v-model="filter">
                                     <md-option v-for="i in 100" :key="i" :value="i"> {{ i }} </md-option>
                                 </md-select>
                             </md-field>
@@ -85,24 +113,35 @@
         height: 30px;
         min-width: auto;
     }
+
+    .table-footer {
+        border: solid 1px rgba(0, 0, 0, 0.12);
+        border-top: 0;
+        border-bottom-left-radius: 4px;
+        border-bottom-right-radius: 4px;
+        .md-table-cell {
+            padding: 0;
+        }
+    }
 </style>
 <script>
     export default {
        data: () => ({
-      selected: [],
-      people: [
-        {
-          name: 'Paulo Henrique Matos',
-          status: 'Cliente',
-          phone: '(16) 99653-8899',
-          email: 'ph.mattos@gmail.com'
-        },
-        {
-          name: 'Juliana Martins Silva',
-          status: 'Lead',
-          phone: '(16) 99664-0187',
-          email: 'a.vieira@uol.com.br'
-        }
+        selected: [],
+        filter: 10,
+        people: [
+            {
+                name: 'Paulo Henrique Matos',
+                status: 'Cliente',
+                phone: '(16) 99653-8899',
+                email: 'ph.mattos@gmail.com'
+            },
+            {
+                name: 'Juliana Martins Silva',
+                status: 'Lead',
+                phone: '(16) 99664-0187',
+                email: 'a.vieira@uol.com.br'
+            }
       ]
     }),
     methods: {
